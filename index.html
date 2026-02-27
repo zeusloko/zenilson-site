@@ -6,150 +6,174 @@
 <title>Zenilson</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-  body { background:#050505; color:#e0e0e0; min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden; position:relative; }
-  a { text-decoration:none; color:inherit; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+body { background:#050505; color:#e0e0e0; min-height:100vh; display:flex; flex-direction:column; align-items:center; overflow-x:hidden; position:relative; }
+a { text-decoration:none; color:inherit; }
 
-  body::before {
-    content:"";
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at 20% 20%, rgba(255,0,0,0.05), transparent 70%), 
-                radial-gradient(circle at 80% 80%, rgba(0,0,255,0.05), transparent 70%);
-    pointer-events:none;
-    z-index:0;
-  }
+body::before {
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,0,0,0.05), transparent 70%), 
+              radial-gradient(circle at 80% 80%, rgba(0,0,255,0.05), transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
 
-  header {
-    padding:25px;
-    text-align:center;
-    font-family:'Orbitron', sans-serif;
-    font-size:2.5rem;
-    color:#ff4f4f;
-    text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff1f1f;
-    z-index:5;
-  }
+header {
+  padding:20px;
+  text-align:center;
+  font-family:'Orbitron', sans-serif;
+  font-size:2rem;
+  color:#ff4f4f;
+  text-shadow: 0 0 10px #ff4f4f, 0 0 20px #ff1f1f;
+  z-index:5;
+}
 
-  .particle {
-    position:absolute;
-    font-size:12px;
-    text-shadow: 0 0 8px currentColor, 0 0 15px currentColor;
-    opacity:0.7;
-    animation: floatParticle linear infinite, colorShift 6s infinite alternate;
-    pointer-events:none;
-    z-index:1;
-  }
-  @keyframes floatParticle {
-    0% { transform: translateY(0) translateX(0) rotate(0deg);}
-    25% { transform: translateY(-15px) translateX(5px) rotate(45deg);}
-    50% { transform: translateY(-30px) translateX(10px) rotate(90deg);}
-    75% { transform: translateY(-15px) translateX(5px) rotate(135deg);}
-    100% { transform: translateY(0) translateX(0) rotate(180deg);}
-  }
-  @keyframes colorShift {
-    0% { color:#ff0040; text-shadow:0 0 8px #ff0040,0 0 15px #ff0040; }
-    20% { color:#ffbf00; text-shadow:0 0 8px #ffbf00,0 0 15px #ffbf00; }
-    40% { color:#00ffbf; text-shadow:0 0 8px #00ffbf,0 0 15px #00ffbf; }
-    60% { color:#0040ff; text-shadow:0 0 8px #0040ff,0 0 15px #0040ff; }
-    80% { color:#ff00ff; text-shadow:0 0 8px #ff00ff,0 0 15px #ff00ff; }
-    100% { color:#ff0040; text-shadow:0 0 8px #ff0040,0 0 15px #ff0040; }
-  }
+/* Partículas neon */
+.particle {
+  position:absolute;
+  font-size:12px;
+  text-shadow: 0 0 8px currentColor, 0 0 15px currentColor;
+  opacity:0.7;
+  animation: floatParticle linear infinite, colorShift 6s infinite alternate;
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0) rotate(0deg);}
+  25% { transform: translateY(-15px) translateX(5px) rotate(45deg);}
+  50% { transform: translateY(-30px) translateX(10px) rotate(90deg);}
+  75% { transform: translateY(-15px) translateX(5px) rotate(135deg);}
+  100% { transform: translateY(0) translateX(0) rotate(180deg);}
+}
+@keyframes colorShift {
+  0% { color:#ff0040; text-shadow:0 0 8px #ff0040,0 0 15px #ff0040; }
+  20% { color:#ffbf00; text-shadow:0 0 8px #ffbf00,0 0 15px #ffbf00; }
+  40% { color:#00ffbf; text-shadow:0 0 8px #00ffbf,0 0 15px #00ffbf; }
+  60% { color:#0040ff; text-shadow:0 0 8px #0040ff,0 0 15px #0040ff; }
+  80% { color:#ff00ff; text-shadow:0 0 8px #ff00ff,0 0 15px #ff00ff; }
+  100% { color:#ff0040; text-shadow:0 0 8px #ff0040,0 0 15px #ff0040; }
+}
 
-  .gallery {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap:15px;
-    max-width:1000px;
-    margin:30px auto;
-    z-index:5;
-    position:relative;
-  }
-  .gallery img {
-    width:100%;
-    height:auto;
-    border-radius:10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow:0 0 10px rgba(255,0,0,0.3);
-    z-index:5;
-  }
-  .gallery img:hover { transform: scale(1.05); box-shadow:0 0 20px rgba(255,0,0,0.6); }
+/* Galeria principal */
+.gallery {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  max-width:1000px;
+  margin:20px auto;
+  z-index:5;
+}
+.gallery img {
+  width:200px;
+  max-width:48%;
+  height:auto;
+  border-radius:10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow:0 0 10px rgba(255,0,0,0.3);
+}
+.gallery img:hover { transform: scale(1.05); box-shadow:0 0 20px rgba(255,0,0,0.6); }
 
-  .love-corner {
-    max-width:500px;
-    margin:40px auto;
-    padding:15px;
-    border-radius:10px;
-    background:rgba(20,0,0,0.4);
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    position:relative;
-    z-index:5;
-    animation: cornerGlow 4s infinite alternate;
-    flex-wrap:wrap;
-  }
-  @keyframes cornerGlow {
-    0% { box-shadow:0 0 10px rgba(255,0,0,0.2);}
-    50% { box-shadow:0 0 20px rgba(255,0,0,0.4);}
-    100% { box-shadow:0 0 10px rgba(255,0,0,0.2);}
-  }
-  .love-corner .img-wrapper { position:relative; }
-  .love-corner img {
-    width:150px;
-    height:auto;
-    object-fit:cover;
-    border-radius:10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow:0 0 8px #ff4444;
-  }
-  .love-corner img:hover { transform: scale(1.05); box-shadow:0 0 20px #ff6666; }
-  .love-corner .caption { position:absolute; bottom:5px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); padding:2px 6px; border-radius:4px; font-size:0.8rem; color:#fff; text-align:center; }
+/* Cantinho Eu & Ela */
+.love-corner {
+  max-width:500px;
+  margin:20px auto;
+  padding:15px;
+  border-radius:10px;
+  background:rgba(20,0,0,0.35);
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:5;
+  animation: cornerGlow 4s infinite alternate;
+}
+@keyframes cornerGlow {
+  0% { box-shadow:0 0 10px rgba(255,0,0,0.2);}
+  50% { box-shadow:0 0 20px rgba(255,0,0,0.4);}
+  100% { box-shadow:0 0 10px rgba(255,0,0,0.2);}
+}
+.love-corner .img-wrapper { position:relative; }
+.love-corner img { width:150px; height:auto; border-radius:10px; transition: transform 0.3s, box-shadow 0.3s; box-shadow:0 0 8px #ff4444; }
+.love-corner img:hover { transform: scale(1.05); box-shadow:0 0 20px #ff6666; }
 
-  .social-block { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:20px auto; max-width:800px; position:relative; z-index:5; }
-  .social-card { display:flex; align-items:center; gap:6px; background:#111; border:1px solid #3b0000; border-radius:8px; padding:10px 16px; font-weight:500; color:#fff; transition: all 0.3s; font-size:1rem; }
-  .social-card:hover { border-color:#ff1f1f; transform: scale(1.05); box-shadow:0 0 15px #ff1f1f; }
+/* Redes sociais */
+.social-block {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:20px auto;
+  max-width:800px;
+  position:relative;
+  z-index:5;
+}
+.social-card {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:#111;
+  border:1px solid #3b0000;
+  border-radius:8px;
+  padding:10px 16px;
+  font-weight:500;
+  color:#fff;
+  transition: all 0.3s;
+  font-size:1rem;
+}
+.social-card:hover { border-color:#ff1f1f; transform: scale(1.05); box-shadow:0 0 15px #ff1f1f; }
 
-  .about-me {
-    position:fixed; top:20px; right:20px; max-width:250px; padding:15px; border-radius:12px; font-size:0.85rem;
-    color:#ffcccc; line-height:1.3; text-align:right; z-index:5;
-    background: rgba(20,20,20,0.5); backdrop-filter: blur(10px) brightness(0.7);
-    border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(255,0,0,0.1);
-  }
+/* Sobre mim */
+.about-me {
+  max-width:250px;
+  padding:15px;
+  border-radius:12px;
+  font-size:0.85rem;
+  color:#ffcccc;
+  line-height:1.3;
+  text-align:center;
+  z-index:5;
+  background: rgba(20,20,20,0.6);
+  backdrop-filter: blur(10px) brightness(0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(255,0,0,0.1);
+  margin:15px auto;
+}
 
-  footer { text-align:center; padding:25px 20px; font-weight:600; color:#ff4f4f; letter-spacing:1px; position:relative; z-index:5; }
+/* Rodapé */
+footer { text-align:center; padding:20px 10px; font-weight:600; color:#ff4f4f; letter-spacing:1px; z-index:5; }
 
-  /* Responsividade */
-  @media(max-width:768px){
-    header { font-size:1.8rem; padding:15px; }
-    .gallery { grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:8px; margin:20px auto; }
-    .gallery img { width:100%; height:auto; border-radius:8px; }
-    .love-corner { max-width:95%; margin:20px auto; padding:10px; flex-wrap:wrap; justify-content:center; }
-    .love-corner img { width:120px; margin-bottom:10px; }
-    .social-block { flex-direction:column; gap:8px; max-width:90%; margin:15px auto; }
-    .social-card { width:100%; text-align:center; padding:8px 0; font-size:0.9rem; }
-    .about-me { position:static; margin:15px auto; text-align:center; max-width:90%; }
-    footer { padding:15px 10px; font-size:0.85rem; }
-  }
+/* Responsividade total */
+@media(max-width:768px){
+  header { font-size:1.6rem; padding:15px; }
+  .gallery img { width:48%; max-width:140px; margin-bottom:10px; }
+  .love-corner img { width:120px; margin-bottom:10px; }
+  .social-card { width:80%; padding:8px 0; font-size:0.95rem; }
+}
 </style>
 </head>
 <body>
 
 <header>Zenilson</header>
 
-<!-- Partículas neon aprimoradas -->
+<!-- Partículas neon -->
 <script>
   const symbols = ["✦","✧","⚔","✹","✺","☥","⚝","⨀","✿","⚡"];
   const numParticles = 60;
   for(let i=0;i<numParticles;i++){
     const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.top = Math.random()*100 + 'vh';
-    p.style.left = Math.random()*100 + 'vw';
-    p.style.fontSize = (8 + Math.random()*10) + 'px';
-    p.style.opacity = (0.3 + Math.random()*0.4);
-    p.style.animationDuration = (5 + Math.random()*10) + 's';
-    p.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+    p.className='particle';
+    p.style.top=Math.random()*100+'vh';
+    p.style.left=Math.random()*100+'vw';
+    p.style.fontSize=(8+Math.random()*10)+'px';
+    p.style.opacity=(0.3+Math.random()*0.4);
+    p.style.animationDuration=(5+Math.random()*10)+'s';
+    p.innerText=symbols[Math.floor(Math.random()*symbols.length)];
     document.body.appendChild(p);
   }
 </script>
@@ -165,11 +189,9 @@
 <section class="love-corner">
   <div class="img-wrapper">
     <img src="fac3e536fa68dafb4389a0e696771495_0.jpg" alt="Nós 1">
-    <div class="caption"></div>
   </div>
   <div class="img-wrapper">
     <img src="Screenshot_20251018-2218472.jpg" alt="Nós 2">
-    <div class="caption"></div>
   </div>
 </section>
 
@@ -194,4 +216,3 @@
 
 </body>
 </html>
-
