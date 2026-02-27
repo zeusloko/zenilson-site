@@ -83,7 +83,7 @@
     box-shadow:0 0 20px rgba(255,0,0,0.6);
   }
 
-  /* Cantinho Eu & Ela com animação sutil */
+  /* Cantinho Eu & Ela */
   .love-corner {
     max-width:500px;
     margin:40px auto;
@@ -96,6 +96,7 @@
     position:relative;
     z-index:5;
     animation: cornerGlow 4s infinite alternate;
+    flex-wrap:wrap;
   }
   @keyframes cornerGlow {
     0% { box-shadow:0 0 10px rgba(255,0,0,0.2);}
@@ -174,7 +175,7 @@
     text-align:right;
     z-index:5;
     
-    background: rgba(20,20,20,0.5); /* mais escuro */
+    background: rgba(20,20,20,0.5);
     backdrop-filter: blur(10px) brightness(0.7);
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 20px rgba(255,0,0,0.1);
@@ -191,20 +192,27 @@
     z-index:5;
   }
 
+  /* Responsividade */
   @media(max-width:768px){
-    .love-corner img { width:120px; }
-    .social-card { padding:8px 12px; font-size:0.9rem; }
-    .about-me { position:static; margin:15px auto; text-align:center; }
+    header { font-size:1.8rem; padding:15px; }
+    .gallery { grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:10px; margin:20px auto; }
+    .gallery img { width:100%; aspect-ratio:1/1; border-radius:8px; }
+    .love-corner { max-width:90%; margin:20px auto; padding:10px; flex-wrap:wrap; }
+    .love-corner img { width:120px; margin-bottom:10px; }
+    .social-block { flex-direction:column; gap:8px; max-width:90%; margin:15px auto; }
+    .social-card { width:100%; text-align:center; padding:8px 0; font-size:0.9rem; }
+    .about-me { position:static; margin:15px auto; text-align:center; max-width:90%; }
+    footer { padding:15px 10px; font-size:0.85rem; }
   }
 </style>
 </head>
 <body>
 
-<header>uuuuuh</header>
+<header>Zenilson</header>
 
 <!-- Partículas neon aprimoradas -->
 <script>
-  const symbols = ["✦","✧","⚔","✹","✺","☥","⚝","⨀","✿","⚡"]; // sem triângulo
+  const symbols = ["✦","✧","⚔","✹","✺","☥","⚝","⨀","✿","⚡"];
   const numParticles = 60;
   for(let i=0;i<numParticles;i++){
     const p = document.createElement('div');
@@ -249,12 +257,14 @@
 
 <!-- Sobre mim -->
 <div class="about-me">
-  “A solidão é o destino de todos os grandes espíritos.” – Arthur Schopenhauer
-
+  Às vezes me sinto perdido no escuro,<br>
+  mas quem permanece ao meu lado ilumina tudo.<br>
+  Cada instante juntos vale mais que qualquer sombra.
 </div>
 
 <!-- Rodapé -->
 <footer>Zenilson 2026</footer>
 
 </body>
-</html>
+</html>l>
+
